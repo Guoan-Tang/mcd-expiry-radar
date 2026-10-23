@@ -1,0 +1,39 @@
+{
+  "name": "mcd-expiry-radar",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Read-only McDonald's MCP expiry radar with a Chinese local web app and reusable Skill.",
+  "license": "MIT",
+  "engines": { "node": ">=22.16.0" },
+  "scripts": {
+    "dev": "tsx watch src/server/index.ts --dev",
+    "build": "npm run typecheck && vite build && tsc -p tsconfig.server.json",
+    "start": "node dist/server/index.js",
+    "radar": "tsx src/server/cli.ts",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:e2e": "playwright test",
+    "check": "npm run test && npm run build && npm run test:e2e"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.25.0",
+    "ajv": "^8.17.1",
+    "express": "^5.1.0",
+    "lucide-react": "^0.468.0",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.56.0",
+    "@types/express": "^5.0.3",
+    "@types/node": "^22.19.0",
+    "@types/react": "^19.2.0",
+    "@types/react-dom": "^19.2.0",
+    "@vitejs/plugin-react": "^4.7.0",
+    "tsx": "^4.20.0",
+    "typescript": "~5.9.3",
+    "vite": "^6.4.0",
+    "vitest": "^3.2.4"
+  }
+}
